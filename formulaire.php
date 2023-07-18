@@ -1,6 +1,6 @@
-<?php require_once('templates/header.php'); ?>
+<?php require_once('../templates/header.php'); ?>
 <div class="col-lg-3">
-              <form action="" method="post">
+              <form action="" id="myForm" method="post">
                 <div class="m-3">
                   <label for="first-name" class="form-label">Votre Prénom</label>
                   <input required type="text" class="form-control" id="first-name">
@@ -27,10 +27,5 @@
                     <option value="second-hand">Occasion</option>
                   </select>
                 </div>
-                <div class="m-3">
-                  <label for="date" class="form-label">Selectioner la date</label>
-                <input type="datetime-local" class="form-control" name="date" id="date">
-                </div>
-                <button type="submit" class="btn btn-primary m-3">Envoyer</button>
+                <button id="submit" type="submit" class="btn btn-primary m-3">Envoyer</button>
               </form>
-              <!--Style-->
