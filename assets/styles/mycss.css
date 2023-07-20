@@ -138,3 +138,7 @@
 #footer{
     background-color: #413d3d59;
   }
+  .exemple{
+    display: none;
+    color: red;
+  }

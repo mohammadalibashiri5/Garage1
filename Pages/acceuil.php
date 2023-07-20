@@ -161,9 +161,4 @@ require_once ('../templates/header.php');
             </div>
 </section>
   </main>
-  <?php require_once('..\templates\footer.php'); ?>
-
-  <script src="..\scripts\script.js"></script>
-  </body>
-
-  </html>
+  <?php require('..\templates\footer.php'); ?>

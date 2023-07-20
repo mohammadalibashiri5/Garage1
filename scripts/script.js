@@ -50,25 +50,35 @@ clearInterval(autoSlide);
 
 /***Submit Function */
 const red = '#e8392c';
-const form = document.getElementById('myForm');
+let form = document.getElementById('myForm');
 form.addEventListener('submit', function (e) {
+
   e.preventDefault();
   if (validateFirstName() && validateLastName() && validateEmail() && validateNumber()) {
-    // Perform any necessary form processing or AJAX submission
-
+    setTimeout(function(){
+      //deactivate submit button
+     changeButton();
     // Display success message
-    var successMessage = document.getElementById('success-message');
-    successMessage.classList.remove('d-none');
-    successMessage.style.display = 'block';
-
-    // Reset the form after successful submission
-    form.reset();
+     setTimeout(function(){
+     showMessage();
+     }, 1000);
+}, 2000);
   }
-});
+},);
+
+const submitButton = document.querySelector('#submit');
+function changeButton(){
+    submitButton.disabled = true;    
+}
+function showMessage(){
+    var successMessage = document.getElementById('success-message');  
+    successMessage.classList.remove('d-none');  
+    successMessage.style.display = 'block';     
+}       
+
 
 function validateFirstName() {
   const firstName = document.getElementById('first-name');
-console.log(firstName);
   if(checkIfEmpty(firstName) === false && checkOnlyLetters(firstName) === true ){
   return true;
 
@@ -134,7 +144,7 @@ function setInvalid(field, message) {
 }
 
 function setValid(field) {
-  field.nextElementSibling.innerHTML = 'span';
+  field.nextElementSibling.innerHTML = '';
 }
 
 function checkOnlyLetters(field) {
@@ -165,9 +175,7 @@ function checkMail(field) {
         numberExample.style.display = "none";
         return true;
     }else{
-        if(checkOnlyLetters(field)){
-            setInvalid(field, `${field.name} doit contenir que de 10 chiffres !`);
-        }
+        setInvalid(field, `${field.name} doit contenir que de 10 chiffres !`);
         var numberExample = document.querySelector(".exemple");
         numberExample.style.display = "inline";
         }
